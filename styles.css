@@ -1,0 +1,44 @@
+h1 {
+  border:2px solid Tomato;
+  padding: 2px;
+  font-family: verdana;
+}
+
+h3 {
+  font-family: verdana;
+}
+
+p {
+  color:rgb(255, 255, 255);
+  background-color:rgb(255, 99, 71);
+  font-family: verdana;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+ul {
+  color: rgb(255, 99, 71);
+  font-family: verdana;
+}
+
+a:link, a:visited {
+  color: rgb(255, 99, 71);
+  font-family: verdana;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: rgb(255, 99, 71);
+  font-family: verdana;
+  color: rgb(255, 255, 255);
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
