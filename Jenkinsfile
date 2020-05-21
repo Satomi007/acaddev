@@ -8,5 +8,6 @@ pipeline {
                 archiveArtifacts artifacts: 'src/index.html'
             }
         }
+    }
        
 }
