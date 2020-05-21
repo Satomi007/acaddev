@@ -10,17 +10,17 @@ pipeline {
         }
         stage('DeployToStage') {
             when {
-                branch 'master'
+                branch 'dev'
             }
             steps {
-                withCredentials([string(credentialsId: 'cloud_user_pw', variable: 'USERPASS')]) {
+                withCredentials([string(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
                     sshPublisher(
                         failOnError: true,
                         publishers: [
                             sshPublisherDesc(
                                 configName: 'staging',
                                 sshCredentials: [
-                                    username: 'cloud_user',
+                                    username: '$USERNAME',
                                     encryptedPassphrase: "$USERPASS"
                                 ], 
                                 transfers: [
@@ -35,21 +35,21 @@ pipeline {
                 }
             }
         }
-        stage('DeployToProd') {
+        stage('DeployToDev') {
             when {
-                branch 'master'
+                branch 'dev'
             }
             steps {
                 input 'Does the staging environment look OK?'
                 milestone(1)
-                withCredentials([string(credentialsId: 'cloud_user_pw', variable: 'USERPASS')]) {
+                withCredentials([string(credentialsId: 'webserver_login',usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
                     sshPublisher(
                         failOnError: true,
                         publishers: [
                             sshPublisherDesc(
-                                configName: 'production',
+                                configName: 'development',
                                 sshCredentials: [
-                                    username: 'cloud_user',
+                                    username: '$USERNAME',
                                     encryptedPassphrase: "$USERPASS"
                                 ], 
                                 transfers: [
