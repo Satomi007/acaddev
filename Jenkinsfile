@@ -10,7 +10,7 @@ pipeline {
         }
         stage('DeployToStage') {
             when {
-                branch 'dev'
+                branch 'master'
             }
             steps {
                 withCredentials([string(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
@@ -37,7 +37,7 @@ pipeline {
         }
         stage('DeployToDev') {
             when {
-                branch 'dev'
+                branch 'master'
             }
             steps {
                 input 'Does the staging environment look OK?'
@@ -47,7 +47,7 @@ pipeline {
                         failOnError: true,
                         publishers: [
                             sshPublisherDesc(
-                                configName: 'development',
+                                configName: 'production',
                                 sshCredentials: [
                                     username: '$USERNAME',
                                     encryptedPassphrase: "$USERPASS"
