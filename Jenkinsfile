@@ -20,10 +20,10 @@ pipeline {
                         failOnError: false,
                          configName: 'staging',
                          transfers: [
-                                    sshTransfer(
+                                  
                                         sourceFiles: 'src/**',
                                         removePrefix: 'src/'
-                                    )
+                  
                                 ]
                           
                             )
