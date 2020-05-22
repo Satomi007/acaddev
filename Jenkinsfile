@@ -19,7 +19,6 @@ pipeline {
                     sshPublisher(
                         failOnError: true,
                         publishers: [
-                            sshPublisherDesc(
                                 configName: 'staging',
                                 transfers: [
                                     sshTransfer(
@@ -27,9 +26,10 @@ pipeline {
                                         removePrefix: 'src/'
                                     )
                                 ]
+                            ]
                             )
-                        ]
-                    )
+                        
+                    
                 }
             }
          } 
