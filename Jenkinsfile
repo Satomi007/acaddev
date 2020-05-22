@@ -14,14 +14,14 @@ pipeline {
                 branch 'master'
             }
             steps {
-                withCredentials([string(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', keyFileVariable: 'KEY')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: "webserver_login", keyFileVariable: 'keyfile')]){
                     sshPublisher(
                         failOnError: true,
                         publishers: [
                             sshPublisherDesc(
                                 configName: 'staging',
                                 sshCredentials: [
-                                    username: '$USERNAME',
+                                    username: 'ec2-user',
                                     keyFile: '$KEY'
                                 ], 
                                 transfers: [
