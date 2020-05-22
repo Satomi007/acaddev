@@ -19,7 +19,7 @@ pipeline {
                         failOnError: true,
                         publishers: [
                             sshPublisherDesc(
-                                configName: 'staging'
+                                configName: 'staging',
                                 transfers: [
                                     sshTransfer(
                                         sourceFiles: 'src/**',
@@ -30,9 +30,7 @@ pipeline {
                         ]
                     )
                 }
-            }
-       
         }
-    }
+    
 }
 
