@@ -17,18 +17,19 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: "webserver_login")]){
                     sshPublisher(
-                        failOnError: false,
-                         configName: 'staging',
-                         transfers: [
-                                  sshTransfer(
+                        failOnError: true,
+                        publishers: [
+                            sshPublisherDesc(
+                                configName: 'staging',
+                                transfers: [
+                                    sshTransfer(
                                         sourceFiles: 'src/**',
                                         removePrefix: 'src/'
-                                    )                  
+                                    )
                                 ]
-                          
                             )
-                        
-                    
+                        ]
+                    )
                 }
             }
          } 
