@@ -17,11 +17,9 @@ pipeline {
                 withCredentials([sshUserPrivateKey(credentialsId: "webserver_login")]){
                     sshPublisher(
                         failOnError: true,
-                        continueOnError: false,
                         publishers: [
                             sshPublisherDesc(
                                 configName: 'staging'
-                                ], 
                                 transfers: [
                                     sshTransfer(
                                         sourceFiles: 'src/**',
