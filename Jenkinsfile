@@ -21,6 +21,7 @@ pipeline {
                              publishers: [
                                 sshPublisherDesc(
                                 configName: 'dev',
+                                    script{
                                     if (failOnError: true) {
                                        output 'couldnt make ssh connection, Please check instance status' 
                                     } else {
@@ -31,7 +32,7 @@ pipeline {
                                         removePrefix: 'src/'
                                     )
                                 ]
-                                    } 
+                                    } }
                            )
                         ]
                     )
