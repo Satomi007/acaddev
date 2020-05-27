@@ -22,7 +22,7 @@ pipeline {
                                 sshPublisherDesc(
                                 configName: 'dev',
                                     script{
-                                    if (failOnError: true) {
+                                    if (failOnError == true) {
                                        output 'couldnt make ssh connection, Please check instance status' 
                                     } else {
                                
