@@ -21,10 +21,7 @@ pipeline {
                              publishers: [
                                 sshPublisherDesc(
                                 configName: 'dev',
-                                    failure {
-                                       output 'couldnt make ssh connection, Please check instance status' 
-                                    }
-                               
+                                      
                                 transfers: [
                                     sshTransfer(
                                         sourceFiles: 'src/**',
