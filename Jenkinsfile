@@ -13,8 +13,6 @@ pipeline {
         stage('DeployToProd') {
          
             steps {
-                input 'Does the staging environment look OK?'
-                 milestone(1)
                 withCredentials([sshUserPrivateKey(credentialsId: "webserver_login")]){
                         sshPublisher(
                              failOnError: true,
