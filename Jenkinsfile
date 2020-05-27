@@ -23,7 +23,7 @@ pipeline {
                                 configName: 'dev',
                                     if (failOnError: true) {
                                        output 'couldnt make ssh connection, Please check instance status' 
-                                    }
+                                    } else {
                                
                                 transfers: [
                                     sshTransfer(
@@ -31,7 +31,8 @@ pipeline {
                                         removePrefix: 'src/'
                                     )
                                 ]
-                            )
+                                    } 
+                           )
                         ]
                     )
                 } 
