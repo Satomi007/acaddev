@@ -13,6 +13,7 @@ pipeline {
         stage('DeployToDev') {
             when {
                 branch 'dev'
+            }
             
             steps {
                 input 'Does the staging environment look OK?'
@@ -33,7 +34,7 @@ pipeline {
                         ]
                     )
                 } 
-              } 
+              
            }  
         }
     }
