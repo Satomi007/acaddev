@@ -1,6 +1,6 @@
 # Project Title
 
-CI/CD pipeline - AWS~Jenkins~GitHub
+CI/CD pipeline - AWS - Jenkins - GitHub
 
 ## Getting Started
 
