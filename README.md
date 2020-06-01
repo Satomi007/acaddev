@@ -2,20 +2,6 @@
 
 CI/CD pipeline - AWS - Jenkins - GitHub
 
-## Getting Started
-
-This project is set 3 steps:
-
-- Deployment: involving the deployment of resources (instances and security groups) on AWS using Terraform and the configuration of web servers machines and jenkins machine with Ansible
-
-- Operations: involving the configuration of a jump host to allow ssh into other instances from employee pc or mac
-
-- CD: involving the configuration of jekins pipelines for CD to dev and prod web servers based on code updates
-    
-### Prerequisites
-
-Terraform (Deployment), Ansible (Configuration), Java jdk (jenkins required), Jenkins(CI), AWS account (Cloud Provider), Github account(Source Control Mgmt.), ~1 pc or mac (simulation)~
-
 ## CD
 
 - Head branch or master branch is related to the Prod pipeline jenkins
